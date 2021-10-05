@@ -6,9 +6,7 @@ import { useState } from 'react';
 
 const NavLink: React.FC<{text:string, to:string, className:string}> = (props) => {
   return (
-    <Link to={props.to}>
-      <p className={props.className}>{props.text}</p>
-    </Link>
+    <Link className={props.className} to={props.to}>{props.text}</Link>
   )
 }
 
