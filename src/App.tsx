@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/'>
+        <Route path='/'> { /* Home page */ }
           <Layout>
             <Navbar>
               <p>Test</p>

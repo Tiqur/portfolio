@@ -12,5 +12,16 @@
   align-items: center;
   width: 90%;
   height: 5em;
-  background: black;
+}
+
+.navlink_text {
+  color: #898A8C;
+  text-decoration: none;
+  padding: 0 1em 0 1em;
+}
+
+.navlink_container {
+  display: flex;
+  justy-content: space-between;
+  align-items: center;
 }
