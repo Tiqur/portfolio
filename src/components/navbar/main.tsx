@@ -35,7 +35,7 @@ export const Navbar: React.FC = (props) => {
         <MenuSvg className={styles.hamburger_menu} onClick={() => setMenuState(!menuState)}/>
         <Portal>
           <div onClick={() => setMenuState(!menuState)} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}>
-            {nav_links.map((e, i) => <NavLink key={i} style={{animationDelay: `${i*75}ms`}} className={styles.navlink_mobile} to={e.to} text={e.text}/>)}
+            {nav_links.map((e, i) => <NavLink key={i} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
           </div>
         </Portal>
 

@@ -9,8 +9,8 @@
 }
 
 @keyframes navlink_mobile_enter {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(0%); }
+  from { opacity: 0%; transform: translateY(100vh); }
+  to { opacity: 100%; transform: translateY(0%); }
 }
 
 .mobile_nav_menu {
@@ -66,9 +66,14 @@
   width: 100%;
   height: 12%;
   top: 100vh;
+  opacity: 0%;
+}
+
+.navlink_mobile_active {
   animation-name: navlink_mobile_enter;
   animation-duration: 800ms;
   animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
 }
 
 .navlink_container {
