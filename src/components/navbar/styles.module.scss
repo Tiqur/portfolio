@@ -1,3 +1,7 @@
+.hamburger_menu {
+  display: none;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -24,4 +28,14 @@
   display: flex;
   justy-content: space-between;
   align-items: center;
+}
+
+// Mobile
+@media(max-width: 750px) {
+  .navlink_container {
+    display: none;
+  }
+  .hamburger_menu {
+    display: initial;
+  }
 }

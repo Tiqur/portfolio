@@ -19,7 +19,7 @@ export const Navbar: React.FC = (props) => {
   return (
     <div className={styles.container}>
       <header className={styles.navbar}>
-        <MenuSvg/>
+        <MenuSvg className={styles.hamburger_menu} onClick={() => setMenuState(!menuState)}/>
         <div className={styles.navlink_container}>
           <NavLink to='#' text='Home'/>
           <NavLink to='#' text='About Me'/>
