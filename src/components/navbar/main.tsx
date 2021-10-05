@@ -30,7 +30,7 @@ export const Navbar: React.FC = (props) => {
         { /* Conditionally render mobile_nav_menu if "menuState" */ }
         { menuState && 
           <Portal>
-            <div className={styles.mobile_nav_menu}/>
+            <div onClick={() => setMenuState(false)} className={styles.mobile_nav_menu}/>
           </Portal>
         }
 
