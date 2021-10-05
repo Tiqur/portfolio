@@ -27,12 +27,9 @@ export const Navbar: React.FC = (props) => {
       <header className={styles.navbar}>
         <MenuSvg className={styles.hamburger_menu} onClick={() => setMenuState(!menuState)}/>
 
-        { /* Conditionally render mobile_nav_menu if "menuState" */ }
-        { menuState && 
-          <Portal>
-            <div onClick={() => setMenuState(false)} className={styles.mobile_nav_menu}/>
-          </Portal>
-        }
+        <Portal>
+          <div onClick={() => setMenuState(!menuState)} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}/>
+        </Portal>
 
         <div className={styles.navlink_container}>
           <NavLink to='#' text='Home'/>

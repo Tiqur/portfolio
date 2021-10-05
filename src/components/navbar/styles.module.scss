@@ -1,12 +1,29 @@
+@keyframes fadein_nav_menu {
+  from {opacity: 0%;}
+  to {opacity: 40%; visibility: visible; z-index: initial;}
+}
+
+@keyframes fadeout_nav_menu {
+  from {opacity: 40%; }
+  to {opacity: 0%; visibility: hidden; z-index: -1;}
+}
+
 .mobile_nav_menu {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
+  opacity: 40%;
   background: black;
-  opacity: 50%;
+}
+
+.mobile_nav_menu_active {
+  animation: fadein_nav_menu 500ms forwards;
+}
+
+.mobile_nav_menu_hidden {
+  animation: fadeout_nav_menu 500ms forwards;
 }
 
 .hamburger_menu {
