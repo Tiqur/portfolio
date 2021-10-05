@@ -64,9 +64,11 @@
   background: #10182C;
   color: #898A8C;
   width: 100%;
-  height: 15%;
-  animation-delay: 500ms;
-  animation: navlink_mobile_enter 1000ms backwards ease-in;
+  height: 12%;
+  top: 100vh;
+  animation-name: navlink_mobile_enter;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in;
 }
 
 .navlink_container {
