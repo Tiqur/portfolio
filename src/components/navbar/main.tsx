@@ -40,8 +40,9 @@ export const Navbar: React.FC = (props) => {
   }, [])
 
   useEffect(() => {
-    let pixelOffset = [0, ...Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth']).slice(1, navLinkId+1)].reduce((a, b) => a+b);
-    setNavHoverStyle({marginLeft: `${pixelOffset}px`})
+    const pixelWidth = Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth'])[navLinkId];
+    const pixelOffset = [0, ...Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth']).slice(0, navLinkId)].reduce((a, b) => a+b);
+    setNavHoverStyle({marginLeft: `${pixelOffset}px`, width: `${pixelWidth}px`})
 
   }, [navLinkId])
 
