@@ -18,6 +18,17 @@
   to { opacity: 0%; transform: translateY(-100vh); }
 }
 
+@keyframes hamburger_enter {
+  from { opacity: 0%; transform: translateX(100vh); }
+  to { opacity: 100%; transform: translateX(0); }
+}
+
+@keyframes hamburger_exit {
+  from { opacity: 100%; transform: translateX(0); }
+  to { opacity: 0%; transform: translateX(100vh); }
+}
+
+// Nav menu
 .mobile_nav_menu {
   overflow-y: hidden;
   position: absolute;
@@ -41,10 +52,33 @@
   animation-fill-mode: forwards;
 }
 
+
+// Hamburger button
 .hamburger_menu {
   display: none;
+  height: 2.5em;
+  width: 2.5em;
+  animation-delay: 50ms;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
+.hamburger_menu_active {
+  animation-name: hamburger_enter;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+.hamburger_menu_hidden {
+  animation-name: hamburger_exit;
+  animation-duration: 1000ms;
+  animation-fill-mode: backwards;
+}
+
+
+// Nav container
 .container {
   display: flex;
   flex-direction: column;
@@ -53,15 +87,17 @@
   width: 100vw;
 }
 
+// Navbar
 .navbar {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  height: 5em;
+  height: 4em;
 }
 
+// Nav links
 .navlink_desktop {
   color: #898A8C;
   text-decoration: none;
@@ -80,6 +116,7 @@
   opacity: 0%;
 }
 
+// Mobile navlinks
 .navlink_mobile_active {
   animation-name: navlink_mobile_enter;
   animation-duration: 800ms;
