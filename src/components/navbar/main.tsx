@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import { MenuSvg } from '../../assets/index';
 import { Link } from 'react-router-dom';
 import usePortal from 'react-useportal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const NavLink: React.FC<{text:string, to:string, className:string, style?:object}> = (props) => {
   return (
@@ -15,9 +15,20 @@ export const Navbar: React.FC = (props) => {
   // State for hamburger menu
   const [menuState, setMenuState] = useState(false);
 
-  // Craete portal to root for nav overlay
+  // Create portal to root for nav overlay
   const { Portal } = usePortal({
     bindTo: document.getElementById('root') as HTMLElement
+  })
+
+  const handleResize = () => {
+    if (window.innerWidth >= 750) {
+      setMenuState(false);
+    }
+  } 
+
+  // Handle resize event
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
   })
 
   const nav_links = [
