@@ -14,6 +14,13 @@ export const Navbar: React.FC = (props) => {
   const [navLinkId, setNavLinkId] = useState(0);
   const navLinkParent = useRef(null);
 
+  const nav_links = [
+    { to: '#', text: 'Home'},
+    { to: '#', text: 'About Me'},
+    { to: '#', text: 'Projects'},
+    { to: '#', text: 'Contact'}
+  ]
+
   // Create portal to root for nav overlay
   const { Portal } = usePortal({
     bindTo: document.getElementById('root') as HTMLElement
@@ -29,7 +36,7 @@ export const Navbar: React.FC = (props) => {
   // Nav links
   const NavLink: React.FC<{text:string, to:string, className:string, id?:number, style?:object}> = (props) => {
     return (
-      <Link className={props.className} onMouseOver={() => setNavLinkId(props.id)} style={props.style} to={props.to}>{props.text}</Link>
+      <Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} style={props.style} to={props.to}>{props.text}</Link>
     )
   }
 
@@ -39,19 +46,14 @@ export const Navbar: React.FC = (props) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [])
 
+  // Update navlink underline width and margin
   useEffect(() => {
-    const pixelWidth = Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth'])[navLinkId];
-    const pixelOffset = [0, ...Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth']).slice(0, navLinkId)].reduce((a, b) => a+b);
-    setNavHoverStyle({marginLeft: `${pixelOffset}px`, width: `${pixelWidth}px`})
-
+      if (navLinkParent.current) {
+        const pixelWidth = Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth'])[navLinkId];
+        const pixelOffset = [0, ...Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth']).slice(0, navLinkId)].reduce((a, b) => a+b);
+        setNavHoverStyle({marginLeft: `${pixelOffset}px`, width: `${pixelWidth}px`})
+      }
   }, [navLinkId])
-
-  const nav_links = [
-    { to: '#', text: 'Home'},
-    { to: '#', text: 'About Me'},
-    { to: '#', text: 'Projects'},
-    { to: '#', text: 'Contact'}
-  ]
 
   return (
     <div className={styles.container}>
