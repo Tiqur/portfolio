@@ -2,34 +2,48 @@ import styles from './styles.module.scss';
 import { MenuSvg } from '../../assets/index';
 import { Link } from 'react-router-dom';
 import usePortal from 'react-useportal';
-import { useState, useEffect } from 'react';
-
-const NavLink: React.FC<{text:string, to:string, className:string, style?:object}> = (props) => {
-  return (
-    <Link className={props.className} style={props.style} to={props.to}>{props.text}</Link>
-  )
-}
+import { useState, useEffect, useRef } from 'react';
 
 export const Navbar: React.FC = (props) => {
 
   // State for hamburger menu
   const [menuState, setMenuState] = useState(false);
+  
+  // For nav link underline
+  const [navHoverStyle, setNavHoverStyle] = useState({marginLeft: '0em'});
+  const [navLinkId, setNavLinkId] = useState(0);
+  const navLinkParent = useRef(null);
 
   // Create portal to root for nav overlay
   const { Portal } = usePortal({
     bindTo: document.getElementById('root') as HTMLElement
   })
 
+  // Handle resize function
   const handleResize = () => {
     if (window.innerWidth >= 750) {
       setMenuState(false);
     }
   } 
 
+  // Nav links
+  const NavLink: React.FC<{text:string, to:string, className:string, id?:number, style?:object}> = (props) => {
+    return (
+      <Link className={props.className} onMouseOver={() => setNavLinkId(props.id)} style={props.style} to={props.to}>{props.text}</Link>
+    )
+  }
+
   // Handle resize event
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-  })
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
+
+  useEffect(() => {
+    let pixelOffset = [0, ...Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth']).slice(1, navLinkId+1)].reduce((a, b) => a+b);
+    setNavHoverStyle({marginLeft: `${pixelOffset}px`})
+
+  }, [navLinkId])
 
   const nav_links = [
     { to: '#', text: 'Home'},
@@ -52,7 +66,10 @@ export const Navbar: React.FC = (props) => {
 
         {/* Desktop nav */}
         <div className={styles.navlink_container}>
-          {nav_links.map((e, i) => <NavLink key={i} className={styles.navlink_desktop} to={e.to} text={e.text}/>)}
+          <div ref={navLinkParent}>
+            {nav_links.map((e, i) => <NavLink key={i} id={i} className={styles.navlink_desktop} to={e.to} text={e.text}/>)}
+          </div>
+          <div style={navHoverStyle} className={styles.navlink_underline}/>
         </div>
 
       </header>

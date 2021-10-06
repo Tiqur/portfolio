@@ -96,8 +96,17 @@
 
 .navlink_container {
   display: flex;
+  flex-direction: column;
   justy-content: space-between;
-  align-items: center;
+}
+
+.navlink_underline {
+  background: #EF008A;
+  margin-top: 0.45em;
+  width: 6em;
+  height: 0.15em;
+  border-radius: 8%;
+  transition: 300ms;
 }
 
 // Mobile
