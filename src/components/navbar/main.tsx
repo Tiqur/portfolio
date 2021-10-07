@@ -37,8 +37,8 @@ export const Navbar: React.FC = (props) => {
   const NavLink: React.FC<{text:string, to:string, className:string, icon?:React.ReactElement, id?:number, style?:object}> = (props) => {
     return (
       props.icon ? 
-      <div className={props.className}>
-        {props.icon}<Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} style={props.style} to={props.to}>{props.text}</Link>
+      <div className={props.className} style={props.style}>
+        {props.icon}<Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} to={props.to}>{props.text}</Link>
       </div> : <Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} style={props.style} to={props.to}>{props.text}</Link>
     )
   }
