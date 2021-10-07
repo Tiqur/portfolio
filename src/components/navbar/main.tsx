@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { MenuSvg } from '../../assets/index';
+import { MenuSvg, HomeSvg, PersonSvg, BriefcaseSvg, MessageSvg } from '../../assets/index';
 import { Link } from 'react-router-dom';
 import usePortal from 'react-useportal';
 import { useState, useEffect, useRef } from 'react';
@@ -15,10 +15,10 @@ export const Navbar: React.FC = (props) => {
   const navLinkParent = useRef(null);
 
   const nav_links = [
-    { to: '#', text: 'Home'},
-    { to: '#', text: 'About Me'},
-    { to: '#', text: 'Projects'},
-    { to: '#', text: 'Contact'}
+    { to: '#', icon: HomeSvg, text: 'Home'},
+    { to: '#', icon: PersonSvg, text: 'About Me'},
+    { to: '#', icon: BriefcaseSvg, text: 'Projects'},
+    { to: '#', icon: MessageSvg, text: 'Contact'}
   ]
 
   // Create portal to root for nav overlay
@@ -34,9 +34,12 @@ export const Navbar: React.FC = (props) => {
   } 
 
   // Nav links
-  const NavLink: React.FC<{text:string, to:string, className:string, id?:number, style?:object}> = (props) => {
+  const NavLink: React.FC<{text:string, to:string, className:string, icon?:React.ReactElement, id?:number, style?:object}> = (props) => {
     return (
-      <Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} style={props.style} to={props.to}>{props.text}</Link>
+      props.icon ? 
+      <div className={props.className}>
+        {props.icon}<Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} style={props.style} to={props.to}>{props.text}</Link>
+      </div> : <Link className={props.className} onMouseOver={() => setNavLinkId(props.id || 0)} style={props.style} to={props.to}>{props.text}</Link>
     )
   }
 
@@ -63,7 +66,7 @@ export const Navbar: React.FC = (props) => {
         <MenuSvg fill='#898A8C' className={`${styles.hamburger_menu} ${!menuState ? styles.hamburger_menu_active : styles.hamburger_menu_hidden}`} onClick={() => setMenuState(!menuState)}/>
         <Portal>
           <div onClick={() => setMenuState(!menuState)} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}>
-            {nav_links.map((e, i) => <NavLink key={i} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
+            {nav_links.map((e, i) => <NavLink key={i} icon={<e.icon className={styles.nav_icon}/>} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
           </div>
         </Portal>
 
