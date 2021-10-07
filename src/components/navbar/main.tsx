@@ -54,7 +54,7 @@ export const Navbar: React.FC = (props) => {
       if (navLinkParent.current) {
         const pixelWidth = Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth'])[navLinkId];
         const pixelOffset = [0, ...Object.entries(navLinkParent.current.children).map(e => e[1]['offsetWidth']).slice(0, navLinkId)].reduce((a, b) => a+b);
-        setNavHoverStyle({marginLeft: `${pixelOffset}px`, width: `${pixelWidth}px`})
+        setNavHoverStyle({marginLeft: `calc(${pixelOffset}px + 2em)`, width: `calc(${pixelWidth}px - 2em)`,})
       }
   }, [navLinkId])
 
@@ -63,7 +63,7 @@ export const Navbar: React.FC = (props) => {
       <header className={styles.navbar}>
 
         {/* Mobile nav */}
-        <MenuSvg fill='#898A8C' className={`${styles.hamburger_menu} ${!menuState ? styles.hamburger_menu_active : styles.hamburger_menu_hidden}`} onClick={() => setMenuState(!menuState)}/>
+        <MenuSvg fill='#898A8C' preserveAspectRatio='none' className={`${styles.hamburger_menu} ${!menuState ? styles.hamburger_menu_active : styles.hamburger_menu_hidden}`} onClick={() => setMenuState(!menuState)}/>
         <Portal>
           <div onClick={() => setMenuState(!menuState)} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}>
             {nav_links.map((e, i) => <NavLink key={i} icon={<e.icon className={styles.nav_icon}/>} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
