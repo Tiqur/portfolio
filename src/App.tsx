@@ -14,6 +14,7 @@ function App() {
         <Route path='/'> { /* Home page */ }
           <Layout>
             <Navbar>
+              
             </Navbar>
           </Layout>
         </Route>
