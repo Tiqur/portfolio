@@ -1,6 +1,7 @@
 import { Layout, Navbar } from './components/index';
 import { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HomePage } from './pages';
 
 function App() {
 
@@ -11,13 +12,11 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/'> { /* Home page */ }
-          <Layout>
-            <Navbar>
-              
-            </Navbar>
-          </Layout>
-        </Route>
+        <Layout>
+          <Navbar>
+            <Route path='/' component={HomePage}/> { /* Home page */ }
+          </Navbar>
+        </Layout>
       </Switch>
     </BrowserRouter>
   )
