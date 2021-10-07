@@ -1,8 +1,12 @@
 import React from 'react';
+import styles from './styles.module.scss';
 
 
 export const HomePage: React.FC = () => {
   return (
-    <p>HomePage</p>
+    <div className={styles.container}>
+
+
+    </div>
   )
 }
