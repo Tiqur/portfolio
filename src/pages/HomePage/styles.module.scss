@@ -1,5 +1,63 @@
 .container {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: calc(100vh - 4em);
-  background: black;
 }
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-top: 6.5em;
+  width: 100%;
+}
+
+.hero_text {
+  position: absolute;
+  font-size: 48px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.hero_text2 {
+  font-size: 18px;
+  font-weight: lighter;
+  color: #B8B8B8;
+}
+
+// Media queries
+@media(max-width: 350px) {
+  .hero_text {
+    font-size: 34px;
+  }
+  .hero_text2 {
+    font-size: 12.75px;
+  }
+}
+
+@media(max-width: 250px) {
+  .hero_text {
+    font-size: 30px;
+  }
+  .hero_text2 {
+    font-size: 11.25px;
+  }
+}
+
+@media(min-width: 749px) {
+  .hero_text {
+    font-size: 60px;
+  }
+  .hero_text2 {
+    font-size: 22.5px;
+  }
+}
+
+@media(min-width: 1000px) {
+  .hero_text {
+    font-size: 96px;
+  }
+  .hero_text2 {
+    font-size: 36px;
+  }
+}
+
