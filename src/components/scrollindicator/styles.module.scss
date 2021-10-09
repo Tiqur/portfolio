@@ -1,0 +1,24 @@
+@keyframes blink {
+  0% {background: #627599}
+  65% {background: #627599}
+  100%   {background: #3071E8}
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator_element {
+  border-radius: 50%;
+  background: #627599;
+  margin-bottom: 0.3em;
+  height: 0.6em;
+  width: 0.6em;
+  animation-name: blink;
+  animation-duration: 600ms;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
