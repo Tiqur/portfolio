@@ -8,7 +8,7 @@
 .hero {
   display: flex;
   justify-content: center;
-  margin-top: 6.5em;
+  margin-top: 12em;
   width: 100%;
 }
 
@@ -45,6 +45,11 @@
 }
 
 @media(min-width: 749px) {
+  .hero {
+    margin-top: 12em;
+    margin-left: 6em;
+    justify-content: flex-start;
+  }
   .hero_text {
     font-size: 60px;
   }
@@ -54,6 +59,10 @@
 }
 
 @media(min-width: 1000px) {
+  .hero {
+    margin-top: 12em;
+    margin-left: 8em;
+  }
   .hero_text {
     font-size: 96px;
   }
