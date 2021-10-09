@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import { MenuSvg, HomeSvg, PersonSvg, BriefcaseSvg, MessageSvg } from '../../assets/index';
 import { Link } from 'react-router-dom';
+import { ScrollProgressBar } from '../index';
 import usePortal from 'react-useportal';
 import { useState, useEffect, useRef } from 'react';
 
@@ -60,6 +61,7 @@ export const Navbar: React.FC = (props) => {
 
   return (
     <div className={styles.container}>
+      <ScrollProgressBar/>
       <header className={styles.navbar}>
 
         {/* Mobile nav */}
