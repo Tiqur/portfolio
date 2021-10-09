@@ -1,14 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 
 
 export const ScrollProgressBar: React.FC = () => {
 
+  // Scroll percentage
+  const [scrollPercent, setScrollPercent] = useState(0);
+
   // Scroll event function
   const handleScroll = () => {
     const pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPos = window.pageYOffset;
-    console.log(scrollPos, pageHeight);
+    
+    // Set scroll percent state
+    setScrollPercent(scrollPos / pageHeight * 100);
   }
 
   // Handle scroll event
@@ -20,7 +25,7 @@ export const ScrollProgressBar: React.FC = () => {
   return (
    <>
     <div className={styles.scroll_progress_background}/>
-    <div className={styles.scroll_progress}/>
+    <div style={{width: `${scrollPercent}vw`}} className={styles.scroll_progress}/>
    </>
   )
 }
