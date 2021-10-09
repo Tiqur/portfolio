@@ -11,7 +11,7 @@ export const HomePage: React.FC = () => {
       <h1 style={{color: '#3071E8', marginLeft: '0.05em', marginTop: '0.05em'}} className={styles.hero_text}>Trevor Brage</h1>
       <h1 style={{color: '#FFFFFF'}} className={styles.hero_text}>Trevor Brage<h2 className={styles.hero_text2}>Full stack developer</h2></h1>
     </div>
-    <ScrollIndicator/>
+    <ScrollIndicator className={styles.scroll_indicator}/>
     </div>
   )
 }
