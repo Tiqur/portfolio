@@ -2,7 +2,6 @@ import styles from './styles.module.scss';
 import { MenuSvg, HomeSvg, PersonSvg, BriefcaseSvg, MessageSvg } from '../../assets/index';
 import { Link } from 'react-router-dom';
 import { ScrollProgressBar } from '../index';
-import usePortal from 'react-useportal';
 import { useState, useEffect, useRef } from 'react';
 
 export const Navbar: React.FC = (props) => {
@@ -21,11 +20,6 @@ export const Navbar: React.FC = (props) => {
     { to: '#', icon: BriefcaseSvg, text: 'Projects'},
     { to: '#', icon: MessageSvg, text: 'Contact'}
   ]
-
-  // Create portal to root for nav overlay
-  const { Portal } = usePortal({
-    bindTo: document.getElementById('root') as HTMLElement
-  })
 
   // Handle resize function
   const handleResize = () => {
@@ -68,11 +62,9 @@ export const Navbar: React.FC = (props) => {
 
         {/* Mobile nav */}
         <MenuSvg fill='#898A8C' preserveAspectRatio='none' className={`${styles.hamburger_menu} ${!menuState ? styles.hamburger_menu_active : styles.hamburger_menu_hidden}`} onClick={() => setMenuState(!menuState)}/>
-        <Portal>
-          <div onClick={() => setMenuState(!menuState)} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}>
-            {nav_links.map((e, i) => <NavLink key={i} icon={<e.icon className={styles.nav_icon}/>} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
-          </div>
-        </Portal>
+        <div onClick={() => setMenuState(!menuState)} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}>
+          {nav_links.map((e, i) => <NavLink key={i} icon={<e.icon className={styles.nav_icon}/>} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
+        </div>
 
         {/* Desktop nav */}
         <div className={styles.navlink_container}>
