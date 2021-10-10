@@ -8,6 +8,9 @@ export const Navbar: React.FC = (props) => {
 
   // State for hamburger menu
   const [menuState, setMenuState] = useState(false);
+
+  // State for navbar scroll position
+  const [oldYOffset, setOldYOffset] = useState(0);
   
   // For nav link underline
   const [navHoverStyle, setNavHoverStyle] = useState({marginLeft: '0em'});
@@ -28,6 +31,17 @@ export const Navbar: React.FC = (props) => {
     }
   } 
 
+  // Handle navbar on scroll up and down
+  const handleScroll = () => {
+    const currentYOffset = window.pageYOffset;
+    if (currentYOffset > oldYOffset) {
+      console.log("down")
+    } else {
+      console.log("up")
+    }
+    setOldYOffset(currentYOffset);
+  }
+
   // Nav links
   const NavLink: React.FC<{text:string, to:string, className:string, icon?:React.ReactElement, id?:number, style?:object}> = (props) => {
     return (
@@ -41,8 +55,12 @@ export const Navbar: React.FC = (props) => {
   // Handle resize event
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [handleResize])
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleResize, handleScroll])
 
   // Update navlink underline width and margin
   useEffect(() => {
@@ -55,7 +73,7 @@ export const Navbar: React.FC = (props) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.background}/>
+      <div className={styles.background}>
       <div className={styles.navbar_container}>
       <ScrollProgressBar/>
       <header className={styles.navbar}>
@@ -75,6 +93,7 @@ export const Navbar: React.FC = (props) => {
         </div>
 
       </header>
+      </div>
       </div>
       {props.children}
     </div>

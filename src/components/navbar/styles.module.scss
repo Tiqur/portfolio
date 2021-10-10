@@ -80,12 +80,15 @@
 
 // Nav container
 .background {
-  position: fixed;
+  position: absolute;
+  top: 0;
   background: #080C24;
   left: 0;
   width: 100vw;
   height: 5em;
   z-index: 1;
+  height: 10em;
+  margin-top: -5em;
 }
 
 .container {
@@ -98,7 +101,8 @@
 
 // Navbar
 .navbar_container {
-  position: fixed;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: flex-end;
   width: 90%;
