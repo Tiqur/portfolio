@@ -6,11 +6,20 @@ import { useState, useEffect, useRef } from 'react';
 
 export const Navbar: React.FC = (props) => {
 
+  // Ref to navbar background
+  const navbarBackgroundRef = useRef(null);
+
   // State for hamburger menu
   const [menuState, setMenuState] = useState(false);
 
   // State for navbar scroll position
-  const [oldYOffset, setOldYOffset] = useState(0);
+  const [oldYOffset, setOldYOffset] = useState(window.pageYOffset);
+
+  // Direction of last scroll ( false = up, true = down )
+  const [scrollDirection, setScrollDirection] = useState(true);
+  const [lastDownScrollPos, setLastDownScrollPos] = useState(window.pageYOffset);
+  const [lastUpScrollPos, setLastUpScrollPos] = useState(window.pageYOffset);
+  const [isFixed, setIsFixed] = useState(false);
   
   // For nav link underline
   const [navHoverStyle, setNavHoverStyle] = useState({marginLeft: '0em'});
@@ -31,14 +40,17 @@ export const Navbar: React.FC = (props) => {
     }
   } 
 
-  // Handle navbar on scroll up and down
+  // Detect scroll up / down
   const handleScroll = () => {
     const currentYOffset = window.pageYOffset;
-    if (currentYOffset > oldYOffset) {
-      console.log("down")
-    } else {
-      console.log("up")
+    const scrollDirection = currentYOffset > oldYOffset;
+    setScrollDirection(scrollDirection);
+    scrollDirection ? setLastDownScrollPos(currentYOffset) : setLastUpScrollPos(currentYOffset);
+    console.log(lastUpScrollPos)
+    if (navbarBackgroundRef.current) {
+      setIsFixed(lastDownScrollPos > oldYOffset + navbarBackgroundRef.current.clientHeight/2);
     }
+    console.log(isFixed)
     setOldYOffset(currentYOffset);
   }
 
@@ -73,7 +85,7 @@ export const Navbar: React.FC = (props) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.background}>
+      <div ref={navbarBackgroundRef} style={{position: isFixed ? 'fixed' : 'absolute', top: scrollDirection && !isFixed ? `calc(${lastUpScrollPos}px` : isFixed ? '0' : `calc(${lastDownScrollPos}px - 10em)`}} className={styles.background}>
       <div className={styles.navbar_container}>
       <ScrollProgressBar/>
       <header className={styles.navbar}>
