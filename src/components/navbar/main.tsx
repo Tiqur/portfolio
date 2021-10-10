@@ -48,7 +48,7 @@ export const Navbar: React.FC = (props) => {
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [])
+  }, [handleResize])
 
   // Update navlink underline width and margin
   useEffect(() => {
@@ -61,6 +61,8 @@ export const Navbar: React.FC = (props) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.background}/>
+      <div className={styles.navbar_container}>
       <ScrollProgressBar/>
       <header className={styles.navbar}>
 
@@ -81,6 +83,7 @@ export const Navbar: React.FC = (props) => {
         </div>
 
       </header>
+      </div>
       {props.children}
     </div>
   )
