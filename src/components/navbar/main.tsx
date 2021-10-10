@@ -85,7 +85,7 @@ export const Navbar: React.FC = (props) => {
 
   return (
     <div className={styles.container}>
-      <div ref={navbarBackgroundRef} style={{position: isFixed ? 'fixed' : 'absolute', top: scrollDirection && !isFixed ? `calc(${lastUpScrollPos}px` : isFixed ? '0' : `calc(${lastDownScrollPos}px - 10em)`}} className={styles.background}>
+      <div ref={navbarBackgroundRef} style={{position: isFixed ? 'fixed' : 'absolute', top: scrollDirection && !isFixed ? `calc(${lastUpScrollPos}px - 5em)` : isFixed ? '0' : `calc(${lastDownScrollPos}px - 10em)`}} className={styles.background}>
       <div className={styles.navbar_container}>
       <ScrollProgressBar/>
       <header className={styles.navbar}>
