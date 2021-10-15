@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin-top: 5em;
 }
@@ -19,4 +20,21 @@
   z-index: 1;
   background: #0B1132;
   border-radius: 9px;
+}
+
+.title {
+  margin-top: 1.5em;
+  font-size: 48px;
+  color: #DBDBDB;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+
+.text {
+  margin-top: 4.5em;
+  text-align: center;
+  font-size: 24px;
+  color: #DBDBDB;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
 }
