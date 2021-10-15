@@ -32,10 +32,24 @@
 }
 
 .text {
-  margin-top: 4.5em;
+  margin-top: 3.5em;
   text-align: center;
   font-size: 24px;
   color: #DBDBDB;
   background: rgba(0, 0, 0, 0);
   z-index: 1;
+}
+
+@media(max-width: 750px) {
+  .inner {
+    filter: drop-shadow(10px 15px 0.6px rgba(6, 9, 28, 0.6));
+  }
+  .title {
+    margin-top: 1em;
+    font-size: 30px;
+  }
+  .text {
+    font-size: 18px;
+    margin-top: 2em;
+  }
 }
