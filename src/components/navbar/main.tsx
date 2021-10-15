@@ -46,11 +46,11 @@ export const Navbar: React.FC = (props) => {
     const scrollDirection = currentYOffset > oldYOffset;
     setScrollDirection(scrollDirection);
     scrollDirection ? setLastDownScrollPos(currentYOffset) : setLastUpScrollPos(currentYOffset);
-    console.log(lastUpScrollPos)
+
     if (navbarBackgroundRef.current) {
       setIsFixed(lastDownScrollPos > oldYOffset + navbarBackgroundRef.current.clientHeight/2);
     }
-    console.log(isFixed)
+
     setOldYOffset(currentYOffset);
   }
 

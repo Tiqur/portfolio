@@ -13,7 +13,6 @@ export const AboutSection: React.FC = () => {
   const setInnerSize = () => {
     if (titleRef.current && textRef.current && innerContainerRef.current) {
       setBackgroundHeightPx(titleRef.current.clientHeight + textRef.current.clientHeight + innerContainerRef.current.clientHeight);
-      console.log(titleRef.current.clientHeight + textRef.current.clientHeight + innerContainerRef.current.clientHeight / 2)
     }
   }
 
