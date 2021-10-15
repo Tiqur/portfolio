@@ -1,7 +1,17 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import { About1Svg } from '../../assets/index'
 import { useRef, useState, useEffect } from 'react';
 
+
+const InnerSection: React.FC = (props) => {
+  return (
+    <div>
+      <About1Svg/>
+      <p>1</p>
+    </div>
+  )
+}
 
 export const AboutSection: React.FC = () => {
   const titleRef = useRef(null);
@@ -28,7 +38,11 @@ export const AboutSection: React.FC = () => {
     <div style={{height: `calc(${backgroundHeightPx}px + 6em)`}} className={styles.background}/>
     <p ref={titleRef} className={styles.title}>About Me</p>
     <p ref={textRef} className={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna, turpis elementum pulvinar. Neque ultrices nulla auctor quam curabitur suscipit. Elementum libero tempus interdum nulla gravida euismod amet nullam tortor. Odio erat suspendisse faucibus neque, pretium velit. Dapibus laoreet nam fermentum nascetur euismod duis. Pulvinar vestibulum pellentesque mattis consequat eget tincidunt tristique feugiat vel. Habitant tincidunt justo tincidunt sit semper condimentum. Mauris mi metus, eget libero. Ac elit et interdum.</p>
-    <div ref={innerContainerRef} className={styles.inner}/>
+    <div ref={innerContainerRef} className={styles.inner}>
+      <InnerSection/>
+      <InnerSection/>
+      <InnerSection/>
+    </div>
    </div>
   )
 }

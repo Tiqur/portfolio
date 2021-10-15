@@ -14,7 +14,11 @@
 }
 
 .inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
+  max-width: 70em;
   height: 18em;
   margin-top: 4em;
   z-index: 1;
@@ -42,6 +46,7 @@
 
 @media(max-width: 750px) {
   .inner {
+    flex-direction: column;
     filter: drop-shadow(10px 15px 0.6px rgba(6, 9, 28, 0.6));
   }
   .title {
