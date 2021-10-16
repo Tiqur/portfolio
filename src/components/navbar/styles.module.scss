@@ -39,6 +39,13 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+.mobile_nav_menu_initial {
+  background: red;
+  animation-name: fadein_nav_menu;
+  animation-duration: 0ms;
+  animation-fill-mode: forwards;
+}
+
 .mobile_nav_menu_active {
   animation-name: fadein_nav_menu;
   animation-duration: 500ms;
