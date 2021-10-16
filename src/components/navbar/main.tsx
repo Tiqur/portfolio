@@ -101,7 +101,7 @@ export const Navbar: React.FC = (props) => {
       <header className={styles.navbar}>
 
         {/* Mobile nav */}
-        <MenuSvg fill='#898A8C' preserveAspectRatio='none' className={`${styles.hamburger_menu} ${!menuState ? styles.hamburger_menu_active : styles.hamburger_menu_hidden}`} onClick={() => setMenuState(!menuState)}/>
+        <MenuSvg fill='#898A8C' preserveAspectRatio='none' style={{opacity: mobileNavHidden ? '0' : 'initial'}} className={`${styles.hamburger_menu} ${!menuState ? styles.hamburger_menu_active : styles.hamburger_menu_hidden}`} onClick={() => setMenuState(!menuState)}/>
         <div onClick={() => setMenuState(!menuState)} style={{visibility: mobileNavHidden ? 'hidden' : 'visible'}} className={`${styles.mobile_nav_menu} ${menuState ? styles.mobile_nav_menu_active : styles.mobile_nav_menu_hidden}`}>
           {nav_links.map((e, i) => <NavLink key={i} icon={<e.icon className={styles.nav_icon}/>} style={{animationDelay: `${i*75}ms`}} className={`${styles.navlink_mobile} ${menuState ? styles.navlink_mobile_active : styles.navlink_mobile_hidden}`} to={e.to} text={e.text}/>)}
         </div>
