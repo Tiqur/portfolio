@@ -27,6 +27,22 @@
   filter: drop-shadow(20px 20px 0.6px rgba(6, 9, 28, 0.6));
 }
 
+.inner_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 10em;
+  background: rgba(0, 0, 0, 0);
+}
+
+.inner_section_text {
+  color: #B8B8B8;
+  font-size: 20px;
+  margin-top: 1.5em;
+  background: rgba(0, 0, 0, 0);
+}
+
 .title {
   margin-top: 1.5em;
   font-size: 48px;
@@ -48,6 +64,11 @@
   .inner {
     flex-direction: column;
     filter: drop-shadow(10px 15px 0.6px rgba(6, 9, 28, 0.6));
+    height: auto;
+    padding-top: 3em;
+  }
+  .inner_section {
+    margin-bottom: 3em;
   }
   .title {
     margin-top: 1em;
