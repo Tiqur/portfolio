@@ -20,17 +20,35 @@
   flex-direction: row;
   height: 100%;
   width: 100%;
-  background: grey;
 }
 
-.button {
-  width: 6em;
+.c_button {
+  width: 3.4em;
   height: 100%;
-  background: blue;
+  background: rgba(0, 0, 0, 0);
+  transition: 200ms;
+  
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+
+    * {
+      fill: #5E6998;
+    }
+  }
+}
+
+.c_buttonL {
+  @extend .c_button;
+  transform: rotate(180deg);
+
+  &:hover {
+    transform: rotate(180deg) scale(1.2);
+  }
 }
 
 .content {
-  width: calc(100% - 12em);
+  width: calc(100% - 6.8em);
   height: 100%;
   background: black;
 }
