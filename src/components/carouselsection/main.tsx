@@ -57,22 +57,33 @@ export const CarouselSection = () => {
     }
   }
 
+  const CarouselButton: React.FC<{desktop: boolean, direction: string}> = (props) => {
+    let c_name;
+    if (props.direction == 'right') {
+      c_name = props.desktop ? styles.c_button : styles.p_button;
+    } else {
+      c_name = props.desktop ? styles.c_buttonL : styles.p_buttonL;
+    }
+
+    return  <ArrowForwardSvg onClick={() => handle_pagination(props.direction)} className={c_name}/>
+  }
+
   return (
     <div className={styles.container}>
       <p className={styles.title}>Projects</p>
       <div className={styles.inner_container}>
-        <ArrowForwardSvg onClick={() => handle_pagination('left')} className={styles.c_buttonL}/>
+        <CarouselButton desktop direction='left'/>
         <div className={styles.content} />
-        <ArrowForwardSvg onClick={() => handle_pagination('right')} className={styles.c_button}/>
+        <CarouselButton desktop direction='right'/>
       </div>
       <div className={styles.navigation}>
       </div>
       <div className={styles.pagination}>
-        <ArrowForwardSvg onClick={() => handle_pagination('left')} className={styles.p_buttonL}/>
+        <CarouselButton desktop={false} direction='left'/>
         {
           projects.map((e, i) => <div key={i} style={{background: project_index > i-1 ? '#57618D' : '#151E34'}} className={styles.p_dot}/>)
         }
-        <ArrowForwardSvg onClick={() => handle_pagination('right')} className={styles.p_button}/>
+        <CarouselButton desktop={false} direction='right'/>
       </div>
     </div>
   )
