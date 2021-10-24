@@ -69,13 +69,9 @@ export const CarouselSection = () => {
       </div>
       <div className={styles.pagination}>
         <ArrowForwardSvg onClick={() => handle_pagination('left')} className={styles.p_buttonL}/>
-        <div className={styles.p_dot}/>
-        <div className={styles.p_dot}/>
-        <div className={styles.p_dot}/>
-        <div className={styles.p_dot}/>
-        <div className={styles.p_dot}/>
-        <div className={styles.p_dot}/>
-        <div className={styles.p_dot}/>
+        {
+          projects.map((e, i) => <div key={i} style={{background: project_index > i-1 ? '#57618D' : '#151E34'}} className={styles.p_dot}/>)
+        }
         <ArrowForwardSvg onClick={() => handle_pagination('right')} className={styles.p_button}/>
       </div>
     </div>
