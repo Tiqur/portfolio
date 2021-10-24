@@ -12,6 +12,8 @@ export const CarouselSection = () => {
       </div>
       <div className={styles.navigation}>
       </div>
+      <div className={styles.pagination}>
+      </div>
     </div>
   )
 } 
