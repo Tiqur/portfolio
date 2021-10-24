@@ -14,6 +14,13 @@ export const CarouselSection = () => {
       </div>
       <div className={styles.pagination}>
         <ArrowForwardSvg className={styles.p_buttonL}/>
+        <div className={styles.p_dot}/>
+        <div className={styles.p_dot}/>
+        <div className={styles.p_dot}/>
+        <div className={styles.p_dot}/>
+        <div className={styles.p_dot}/>
+        <div className={styles.p_dot}/>
+        <div className={styles.p_dot}/>
         <ArrowForwardSvg className={styles.p_button}/>
       </div>
     </div>
