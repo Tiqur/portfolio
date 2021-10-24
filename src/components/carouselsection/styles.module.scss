@@ -38,6 +38,20 @@
   }
 }
 
+.p_button {
+  @extend .c_button;
+  width: 2em;
+}
+
+.p_buttonL {
+  @extend .p_button;
+  transform: rotate(180deg);
+
+  &:hover {
+    transform: rotate(180deg) scale(1.2);
+  }
+}
+
 .c_buttonL {
   @extend .c_button;
   transform: rotate(180deg);
@@ -60,14 +74,19 @@
 }
 
 .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 12em;
-  background: green;
 }
 
 @media(max-width: 750px) {
   .c_button {
     display: none;
+  }
+  .p_button {
+    display: initial;
   }
   .content {
     width: 100%;
