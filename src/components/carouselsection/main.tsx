@@ -81,7 +81,7 @@ export const CarouselSection = () => {
       <div className={styles.pagination}>
         <CarouselButton desktop={false} direction='left'/>
         {
-          projects.map((e, i) => <div key={i} className={project_index > i-1 ? styles.p_dot_active : styles.p_dot}/>)
+          projects.map((e, i) => <div key={i} onClick={() => set_project_index(i)} className={project_index > i-1 ? styles.p_dot_active : styles.p_dot}/>)
         }
         <CarouselButton desktop={false} direction='right'/>
       </div>

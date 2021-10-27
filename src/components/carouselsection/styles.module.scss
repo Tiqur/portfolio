@@ -104,14 +104,16 @@
   animation-name: p_dot_fade_in;
   animation-duration: 300ms;
   animation-direction: forwards;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .p_dot_active {
   @extend .p_dot;
   background: #57618D;
   animation-name: p_dot_fade_out;
-  animation-duration: 300ms;
-  animation-direction: forwards;
 }
 
 @media(max-width: 750px) {
