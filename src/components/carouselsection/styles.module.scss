@@ -1,3 +1,13 @@
+@keyframes p_dot_fade_in {
+  from {background: #57618D;}
+  to {background: #151E34;}
+}
+
+@keyframes p_dot_fade_out {
+  from {background: #151E34;}
+  to {background: #57618D;}
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -90,6 +100,18 @@
   width: 0.7em;
   height: 0.7em;
   border-radius: 50%;
+  background: #151E34;
+  animation-name: p_dot_fade_in;
+  animation-duration: 300ms;
+  animation-direction: forwards;
+}
+
+.p_dot_active {
+  @extend .p_dot;
+  background: #57618D;
+  animation-name: p_dot_fade_out;
+  animation-duration: 300ms;
+  animation-direction: forwards;
 }
 
 @media(max-width: 750px) {
