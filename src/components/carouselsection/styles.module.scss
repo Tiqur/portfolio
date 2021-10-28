@@ -78,6 +78,20 @@
   background: black;
 }
 
+.content_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.content_image {
+  aspect-ratio: 1920 / 1080;
+  width: 85%;
+}
+
 .navigation {
   width: 100%;
   height: 12em;

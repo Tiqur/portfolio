@@ -6,7 +6,7 @@ export const CarouselSection = () => {
   const projects = [
     {
       name: "Project1",
-      image: 'image',
+      image: 'https://picsum.photos/id/1/1920/1080',
       description: "Project1 Description",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
@@ -14,7 +14,7 @@ export const CarouselSection = () => {
     },
     {
       name: "Project2",
-      image: 'image',
+      image: 'https://picsum.photos/id/10/1920/1080',
       description: "Project2 Description",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
@@ -22,7 +22,7 @@ export const CarouselSection = () => {
     },
     {
       name: "Project2",
-      image: 'image',
+      image: 'https://picsum.photos/id/20/1920/1080',
       description: "Project2 Description",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
@@ -30,7 +30,7 @@ export const CarouselSection = () => {
     },
     {
       name: "Project3",
-      image: 'image',
+      image: 'https://picsum.photos/id/30/1920/1080',
       description: "Project3 Description",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
@@ -38,7 +38,7 @@ export const CarouselSection = () => {
     },
     {
       name: "Project4",
-      image: 'image',
+      image: 'https://picsum.photos/id/40/1920/1080',
       description: "Project4 Description",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
@@ -73,7 +73,11 @@ export const CarouselSection = () => {
       <p className={styles.title}>Projects</p>
       <div className={styles.inner_container}>
         <CarouselButton desktop direction='left'/>
-        <div className={styles.content} />
+          <div className={styles.content}>
+            <div className={styles.content_left}>
+              <img className={styles.content_image} src={projects[project_index].image}/>
+            </div>
+          </div>
         <CarouselButton desktop direction='right'/>
       </div>
       <div className={styles.navigation}>
