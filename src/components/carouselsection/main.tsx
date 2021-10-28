@@ -7,7 +7,7 @@ export const CarouselSection = () => {
     {
       name: "Project1",
       image: 'https://picsum.photos/id/1/1920/1080',
-      description: "Project1 Description",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna, turpis elementum pulvinar. Neque ultrices nulla auctor quam curabitur suscipit. Elementum libero tempus",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
       website: 'https://google.com', // If this matches website url, render "Demo" button
@@ -15,31 +15,31 @@ export const CarouselSection = () => {
     {
       name: "Project2",
       image: 'https://picsum.photos/id/10/1920/1080',
-      description: "Project2 Description",
-      icons: ['scss', 'react', 'js', 'html'],
-      github: 'https://github.com',
-      website: 'https://google.com'
-    },
-    {
-      name: "Project2",
-      image: 'https://picsum.photos/id/20/1920/1080',
-      description: "Project2 Description",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna, turpis elementum pulvinar. Neque ultrices nulla auctor quam curabitur suscipit. Elementum libero tempus",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
       website: 'https://google.com'
     },
     {
       name: "Project3",
-      image: 'https://picsum.photos/id/30/1920/1080',
-      description: "Project3 Description",
+      image: 'https://picsum.photos/id/20/1920/1080',
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna, turpis elementum pulvinar. Neque ultrices nulla auctor quam curabitur suscipit. Elementum libero tempus",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
       website: 'https://google.com'
     },
     {
       name: "Project4",
+      image: 'https://picsum.photos/id/30/1920/1080',
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna, turpis elementum pulvinar. Neque ultrices nulla auctor quam curabitur suscipit. Elementum libero tempus",
+      icons: ['scss', 'react', 'js', 'html'],
+      github: 'https://github.com',
+      website: 'https://google.com'
+    },
+    {
+      name: "Project5",
       image: 'https://picsum.photos/id/40/1920/1080',
-      description: "Project4 Description",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum urna, turpis elementum pulvinar. Neque ultrices nulla auctor quam curabitur suscipit. Elementum libero tempus",
       icons: ['scss', 'react', 'js', 'html'],
       github: 'https://github.com',
       website: 'https://google.com'
@@ -74,8 +74,12 @@ export const CarouselSection = () => {
       <div className={styles.inner_container}>
         <CarouselButton desktop direction='left'/>
           <div className={styles.content}>
-            <div className={styles.content_left}>
+            <div>
               <img className={styles.content_image} src={projects[project_index].image}/>
+            </div>
+            <div>
+              <p className={styles.project_title}>{projects[project_index].name}</p>
+              <p className={styles.project_description}>{projects[project_index].description}</p>
             </div>
           </div>
         <CarouselButton desktop direction='right'/>
