@@ -74,6 +74,8 @@
 
 .content {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: calc(100% - 6.8em);
   height: 100%;
 
@@ -89,7 +91,7 @@
 
 .content_image {
   aspect-ratio: 1920 / 1080;
-  width: 60%;
+  max-width: 65%;
 }
 
 .navigation {
@@ -99,7 +101,7 @@
 }
 
 .project_title {
-  font-size: 2.7rem;
+  font-size: 2.15rem;
   color: #B8B8B8;
   margin-bottom: 0.4em;
 }
@@ -143,7 +145,7 @@
   animation-name: p_dot_fade_out;
 }
 
-@media(max-width: 750px) {
+@media(max-width: 1000px) {
   .c_button {
     display: none;
   }
@@ -151,11 +153,17 @@
     display: initial;
   }
   .content {
+    flex-direction: column;
+    margin-bottom: 3.5em;
     width: 100%;
+
+    & div {
+      width: 100%;
+    }
   }
 }
 
-@media(min-width: 751px) {
+@media(min-width: 1001px) {
   .p_button {
     display: none;
   }
